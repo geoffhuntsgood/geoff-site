@@ -14,39 +14,34 @@ export const MainCard = ({
   description,
   link,
   img,
-  color1,
-  color2,
-  hoverColor
+  lightColor,
+  darkColor
 }: {
   header: string;
   description: string;
   link: string;
   img: string;
-  color1?: string;
-  color2?: string;
-  hoverColor?: string;
+  lightColor: string;
+  darkColor: string;
 }) => {
-  const medScreen = useMediaQuery("(max-width: 1000px)");
+  const medScreen = useMediaQuery("(max-width: 1200px)");
   const smallScreen = useMediaQuery("(max-width: 600px)");
 
   const styles = {
     card: {
-      backgroundImage:
-        color1 && color2
-          ? `linear-gradient(${color1}, ${color2})`
-          : "linear-gradient(blue, blue)"
+      backgroundImage: `linear-gradient(${lightColor}, ${darkColor})`
     },
     cardActions: {
       display: "flex",
       "&:hover": {
-        backgroundColor: hoverColor ? hoverColor : "lightblue",
-        transition: "background-color 0.2s ease-in-out"
+        backgroundColor: lightColor,
+        transition: "background-color 0.3s ease-in-out"
       }
     }
   };
 
   return (
-    <Box sx={{ margin: "2rem auto", width: medScreen ? "90vw" : "60vw" }}>
+    <Box sx={{ margin: "2rem auto", width: medScreen ? "90%" : "60%" }}>
       <Card sx={styles.card}>
         <CardActionArea href={link} sx={styles.cardActions}>
           <CardMedia
@@ -56,7 +51,7 @@ export const MainCard = ({
             sx={{
               height: 256,
               width: 256,
-              objectFit: "contain"
+              objectFit: "none",
             }}
           />
           <Box sx={{ display: smallScreen ? "none" : "inline" }}>
@@ -68,7 +63,7 @@ export const MainCard = ({
           <Box sx={{ display: smallScreen ? "inline" : "none" }}>
             <CardContent>
               <Tooltip arrow title={description}>
-                <Typography variant="h3" sx={{ marginLeft: "-1rem" }}>
+                <Typography variant="h2" sx={{ marginLeft: "-1rem" }}>
                   {header}
                 </Typography>
               </Tooltip>

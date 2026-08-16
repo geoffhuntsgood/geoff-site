@@ -1,43 +1,86 @@
 import {
   AppBar,
   Box,
+  IconButton,
+  Menu,
   ThemeProvider,
   Toolbar,
-  Tooltip,
   Typography,
   useMediaQuery
 } from "@mui/material";
+import { MouseEvent, useState } from "react";
+import { HeaderLink } from "./components/HeaderLink";
 import { MainCard } from "./components/MainCard";
 import { theme } from "./utils/theme";
 
 const App = () => {
-  const smallScreen = useMediaQuery("(max-width: 800px)");
-  const src = "https://www.speedrun.com/users/GeoffinitiveEdition";
+  const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
+  const menuOpen = Boolean(menuAnchor);
+
+  const smallScreen = useMediaQuery("(max-width: 700px)");
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setMenuAnchor(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setMenuAnchor(null);
+  };
+
+  const menuList = (isInMenu: boolean) => (
+    <>
+      <HeaderLink
+        label="SRC"
+        link="https://www.speedrun.com/users/GeoffinitiveEdition"
+        isInMenu={isInMenu}
+        handleClose={handleClose}
+      />
+      <HeaderLink
+        label="Twitch"
+        link="https://www.twitch.tv/thegeoffinitiveedition"
+        isInMenu={isInMenu}
+        handleClose={handleClose}
+      />
+      <HeaderLink
+        label="YouTube"
+        link="https://www.youtube.com/@TheGeoffinitiveEdition"
+        isInMenu={isInMenu}
+        handleClose={handleClose}
+      />
+    </>
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h1">Geoff Huntsgood</Typography>
-          <Box sx={{ display: smallScreen ? "none" : "flex" }}>
-            <a
-              href={src}
-              target="_blank"
-            >
-              <Typography variant="h3" color="textPrimary">
-                SRC Records
-              </Typography>
-            </a>
-          </Box>
-          <Box sx={{ display: smallScreen ? "flex" : "none" }}>
-            <Tooltip arrow title="SRC Records">
-              <a
-                href={src}
-                target="_blank"
-              >
-                <Typography variant="h3">🏁</Typography>
-              </a>
-            </Tooltip>
+          <Box sx={{ display: "flex" }}>
+            {smallScreen ? (
+              <>
+                <IconButton onClick={handleClick}>
+                  <Typography color="textSecondary" variant="h3">
+                    ▼
+                  </Typography>
+                </IconButton>
+                <Menu
+                  open={menuOpen}
+                  anchorEl={menuAnchor}
+                  onClose={handleClose}
+                  slotProps={{
+                    paper: {
+                      sx: {
+                        background: "linear-gradient(to bottom right, dodgerblue, blue)",
+                      }
+                    }
+                  }}
+                >
+                  {menuList(true)}
+                </Menu>
+              </>
+            ) : (
+              <>{menuList(false)}</>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
@@ -47,9 +90,8 @@ const App = () => {
         description="Test your Pokémon knowledge"
         link="/pokemon-quiz"
         img="img/pikachus.png"
-        color1="blue"
-        color2="darkblue"
-        hoverColor="blue"
+        lightColor="dodgerblue"
+        darkColor="blue"
       />
 
       <MainCard
@@ -57,9 +99,8 @@ const App = () => {
         description="All the speedrun routes in one place"
         link="/dk64-routes"
         img="img/dk.png"
-        color1="gold"
-        color2="orangered"
-        hoverColor="gold"
+        lightColor="yellow"
+        darkColor="goldenrod"
       />
 
       <MainCard
@@ -67,18 +108,8 @@ const App = () => {
         description="Complete the goals in Bananza or DK64"
         link="/squawksatoo"
         img="img/squawks.png"
-        color1="limegreen"
-        color2="green"
-        hoverColor="limegreen"
-      />
-      <MainCard
-        header="Twitch"
-        description="The chillest speedruns of all time!"
-        link="https://www.twitch.tv/thegeoffinitiveedition"
-        img="img/twitch.png"
-        color1="darkviolet"
-        color2="indigo"
-        hoverColor="darkviolet"
+        lightColor="limegreen"
+        darkColor="green"
       />
     </ThemeProvider>
   );

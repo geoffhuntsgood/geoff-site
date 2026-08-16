@@ -9,17 +9,39 @@ export const theme = createTheme({
         }
       }
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          marginRight: "-1.5rem"
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: "blue",
+            transition: "background-color 0.3s ease-in-out"
+          }
+        }
+      }
+    },
     MuiTooltip: {
       styleOverrides: {
+        arrow: {
+          color: "darkblue"
+        },
         tooltip: {
-          fontSize: "2rem"
+          fontSize: "2rem",
+          backgroundColor: "darkblue"
         }
       }
     }
   },
   palette: {
     text: {
-      primary: "#fff"
+      primary: "#000",
+      secondary: "#fff"
     }
   },
   typography: {
@@ -32,7 +54,8 @@ export const theme = createTheme({
       fontSize: "2.5rem"
     },
     h3: {
-      fontSize: "2rem"
+      fontSize: "2rem",
+      margin: "0 1rem"
     }
   }
 });
