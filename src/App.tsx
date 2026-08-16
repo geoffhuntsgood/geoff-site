@@ -70,7 +70,8 @@ const App = () => {
                   slotProps={{
                     paper: {
                       sx: {
-                        background: "linear-gradient(to bottom right, dodgerblue, blue)",
+                        background:
+                          "linear-gradient(to bottom right, dodgerblue, blue)"
                       }
                     }
                   }}
@@ -85,32 +86,40 @@ const App = () => {
         </Toolbar>
       </AppBar>
 
-      <MainCard
-        header="Pokémon Quiz"
-        description="Test your Pokémon knowledge"
-        link="/pokemon-quiz"
-        img="img/pikachus.png"
-        lightColor="dodgerblue"
-        darkColor="blue"
-      />
-
-      <MainCard
-        header="DK64 Routes"
-        description="All the speedrun routes in one place"
-        link="/dk64-routes"
-        img="img/dk.png"
-        lightColor="yellow"
-        darkColor="goldenrod"
-      />
-
-      <MainCard
-        header="Squawksatoo"
-        description="Complete the goals in Bananza or DK64"
-        link="/squawksatoo"
-        img="img/squawks.png"
-        lightColor="limegreen"
-        darkColor="green"
-      />
+      <Box sx={{ paddingBottom: "2rem" }}>
+        <MainCard
+          header="Pokémon Quiz"
+          description="Test your Pokémon knowledge"
+          link="/pokemon-quiz"
+          img="img/pikachus.png"
+          lightColor="dodgerblue"
+          darkColor="blue"
+        />
+        <MainCard
+          header="DK64 Routes"
+          description="All the speedrun routes in one place"
+          link="/dk64-routes"
+          img="img/dk.png"
+          lightColor="yellow"
+          darkColor="goldenrod"
+        />
+        <MainCard
+          header="Squawksatoo"
+          description="Complete the goals in Bananza or DK64"
+          link="/squawksatoo"
+          img="img/squawks.png"
+          lightColor="limegreen"
+          darkColor="green"
+        />
+        <MainCard
+          header="Chat Overlay"
+          description='A simple Twitch chat overlay. Add ?channel="{your channel}"!'
+          link="/chat-overlay"
+          img="img/twitch.png"
+          lightColor="darkviolet"
+          darkColor="purple"
+        />
+      </Box>
     </ThemeProvider>
   );
 };
