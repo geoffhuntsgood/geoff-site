@@ -113,7 +113,7 @@ const App = () => {
         />
         <MainCard
           header="Chat Overlay"
-          description='A simple Twitch chat overlay. Add ?channel="{your channel}"!'
+          description='Add ?channel="{your channel}"!'
           link="/chat-overlay"
           img="img/twitch.png"
           lightColor="darkviolet"
