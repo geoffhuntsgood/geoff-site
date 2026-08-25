@@ -12,7 +12,7 @@ export const HeaderLink = ({
   handleClose?: () => void;
 }) => {
   const typography = (
-    <Typography variant="h3" color="textSecondary">
+    <Typography sx={{ margin: "0 1rem" }} variant="h4" color="textSecondary">
       {label}
     </Typography>
   );

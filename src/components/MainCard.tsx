@@ -1,12 +1,9 @@
 import {
-  Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  Tooltip,
-  Typography,
-  useMediaQuery
+  Typography
 } from "@mui/material";
 
 export const MainCard = ({
@@ -24,11 +21,9 @@ export const MainCard = ({
   lightColor: string;
   darkColor: string;
 }) => {
-  const medScreen = useMediaQuery("(max-width: 1200px)");
-  const smallScreen = useMediaQuery("(max-width: 600px)");
-
   const styles = {
     card: {
+      margin: "2rem",
       backgroundImage: `linear-gradient(${lightColor}, ${darkColor})`
     },
     cardActions: {
@@ -41,36 +36,24 @@ export const MainCard = ({
   };
 
   return (
-    <Box sx={{ margin: "2rem auto", width: medScreen ? "90%" : "60%" }}>
-      <Card sx={styles.card}>
-        <CardActionArea href={link} sx={styles.cardActions}>
-          <CardMedia
-            component="img"
-            image={img}
-            alt={header}
-            sx={{
-              height: 256,
-              width: 256,
-              objectFit: "none",
-            }}
-          />
-          <Box sx={{ display: smallScreen ? "none" : "inline" }}>
-            <CardContent>
-              <Typography variant="h2">{header}</Typography>
-              <Typography variant="h3">{description}</Typography>
-            </CardContent>
-          </Box>
-          <Box sx={{ display: smallScreen ? "inline" : "none" }}>
-            <CardContent>
-              <Tooltip arrow title={description}>
-                <Typography variant="h2" sx={{ marginLeft: "-1rem" }}>
-                  {header}
-                </Typography>
-              </Tooltip>
-            </CardContent>
-          </Box>
-        </CardActionArea>
-      </Card>
-    </Box>
+    <Card sx={styles.card}>
+      <CardActionArea href={link} sx={styles.cardActions}>
+        <CardMedia
+          component="img"
+          image={img}
+          alt={header}
+          sx={{
+            width: 256,
+            height: 128,
+            objectFit: "scale-down",
+            margin: "0 1rem 0.5rem 0"
+          }}
+        />
+        <CardContent>
+          <Typography variant="h3">{header}</Typography>
+          <Typography variant="h4">{description}</Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 };

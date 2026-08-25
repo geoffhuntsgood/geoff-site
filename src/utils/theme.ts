@@ -9,6 +9,20 @@ export const theme = createTheme({
         }
       }
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "unset",
+          fontSize: "2rem",
+          backgroundColor: "darkblue",
+          borderRadius: "10px",
+          padding: "0 1rem",
+          "&:hover": {
+            backgroundColor: "dodgerblue"
+          }
+        }
+      }
+    },
     MuiIconButton: {
       styleOverrides: {
         root: {
@@ -51,11 +65,14 @@ export const theme = createTheme({
       flexGrow: "1"
     },
     h2: {
-      fontSize: "2.5rem"
+      fontSize: "3rem",
+      margin: "1rem"
     },
     h3: {
-      fontSize: "2rem",
-      margin: "0 1rem"
+      fontSize: "2.5rem"
+    },
+    h4: {
+      fontSize: "2rem"
     }
   }
 });

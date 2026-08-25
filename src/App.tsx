@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box,
+  Button,
   IconButton,
   Menu,
   ThemeProvider,
@@ -17,6 +18,7 @@ const App = () => {
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(menuAnchor);
 
+  const medScreen = useMediaQuery("(max-width: 1100px)");
   const smallScreen = useMediaQuery("(max-width: 700px)");
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -49,6 +51,13 @@ const App = () => {
       />
     </>
   );
+
+  const boxStyles = {
+    width: smallScreen ? "100%" : medScreen ? "90%" : "50%",
+    textAlign: "center",
+    margin: "0 auto",
+    paddingBottom: "2rem"
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -86,10 +95,13 @@ const App = () => {
         </Toolbar>
       </AppBar>
 
-      <Box sx={{ paddingBottom: "2rem" }}>
+      <Box sx={{ ...boxStyles, float: medScreen ? null : "left" }}>
+        <Typography variant="h2" color="textSecondary">
+          Games
+        </Typography>
         <MainCard
-          header="Pokémon Quiz"
-          description="Test your Pokémon knowledge"
+          header="PokéQuiz"
+          description="Test your knowledge!"
           link="/pokemon-quiz"
           img="img/pikachus.png"
           lightColor="dodgerblue"
@@ -97,7 +109,7 @@ const App = () => {
         />
         <MainCard
           header="DK64 Routes"
-          description="All the speedrun routes in one place"
+          description="Collected speedrun routes"
           link="/dk64-routes"
           img="img/dk.png"
           lightColor="yellow"
@@ -111,14 +123,46 @@ const App = () => {
           lightColor="limegreen"
           darkColor="green"
         />
+      </Box>
+
+      <Box sx={{ ...boxStyles, float: medScreen ? null : "right" }}>
+        <Typography variant="h2" color="textSecondary">
+          Tools
+        </Typography>
         <MainCard
           header="Chat Overlay"
-          description='Add ?channel="{your channel}"!'
+          description='Add ?channel="{your channel}"'
           link="/chat-overlay"
           img="img/twitch.png"
           lightColor="darkviolet"
           darkColor="purple"
         />
+        <MainCard
+          header="QR Generator"
+          description="QR codes with fun colors!"
+          link="/qr-generator"
+          img="img/qrcode.png"
+          lightColor="red"
+          darkColor="darkred"
+        />
+      </Box>
+
+      <Box
+        sx={{
+          clear: "both",
+          width: "100%",
+          textAlign: "center",
+          paddingBottom: "2rem"
+        }}
+      >
+        <Button
+          href="https://buymeacoffee.com/geoffhuntsgood"
+          rel="noopener noreferrer"
+          target="_blank"
+          variant="contained"
+        >
+          {`Buy me a coffee <3`}
+        </Button>
       </Box>
     </ThemeProvider>
   );
