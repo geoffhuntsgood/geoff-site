@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { HeaderLink } from "./components/HeaderLink";
+import { Leaderboard } from "./components/leaderboard/Leaderboard";
 import { MainCard } from "./components/MainCard";
 import { theme } from "./utils/theme";
 
@@ -145,6 +146,13 @@ const App = () => {
           lightColor="red"
           darkColor="darkred"
         />
+      </Box>
+
+      <Box sx={{ ...boxStyles, width: "100%", clear: "both" }}>
+        <Typography variant="h2" color="textSecondary">
+          Twitch Stream Leaderboards
+        </Typography>
+        <Leaderboard />
       </Box>
 
       <Box

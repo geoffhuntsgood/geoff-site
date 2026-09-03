@@ -30,6 +30,34 @@ export const theme = createTheme({
         }
       }
     },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          border: "3px solid blue",
+          borderRadius: "1rem",
+          margin: "1rem",
+          maxHeight: "25rem",
+          overflowX: "hidden",
+          overflowY: "scroll"
+        }
+      }
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        root: {
+          color: "white",
+          fontSize: "2rem"
+        }
+      }
+    },
+    MuiListSubheader: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "blue",
+          fontSize: "2rem"
+        }
+      }
+    },
     MuiMenuItem: {
       styleOverrides: {
         root: {
