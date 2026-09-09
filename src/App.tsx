@@ -124,6 +124,14 @@ const App = () => {
           lightColor="limegreen"
           darkColor="green"
         />
+        <MainCard
+          header="Squawksatoo VS"
+          description="Complete the goals in multiplayer!"
+          link="https://squawks-vs.onrender.com"
+          img="img/angy-squawks.png"
+          lightColor="red"
+          darkColor="darkred"
+        />
       </Box>
 
       <Box sx={{ ...boxStyles, float: medScreen ? null : "right" }}>
@@ -143,14 +151,14 @@ const App = () => {
           description="QR codes with fun colors!"
           link="/qr-generator"
           img="img/qrcode.png"
-          lightColor="red"
-          darkColor="darkred"
+          lightColor="orange"
+          darkColor="orangered"
         />
       </Box>
 
       <Box sx={{ ...boxStyles, width: "100%", clear: "both" }}>
         <Typography variant="h2" color="textSecondary">
-          Twitch Stream Leaderboards
+          Twitch Stream Leaderboards (Aug 2026)
         </Typography>
         <Leaderboard />
       </Box>
