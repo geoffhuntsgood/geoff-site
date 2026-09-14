@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { HeaderLink } from "./components/HeaderLink";
-import { Leaderboard } from "./components/leaderboard/Leaderboard";
 import { MainCard } from "./components/MainCard";
 import { theme } from "./utils/theme";
 
@@ -47,6 +46,12 @@ const App = () => {
       <HeaderLink
         label="YouTube"
         link="https://www.youtube.com/@TheGeoffinitiveEdition"
+        isInMenu={isInMenu}
+        handleClose={handleClose}
+      />
+      <HeaderLink
+        label="Etsy"
+        link="https://www.etsy.com/shop/GeoffsRandomStuff"
         isInMenu={isInMenu}
         handleClose={handleClose}
       />
@@ -139,7 +144,7 @@ const App = () => {
           Tools
         </Typography>
         <MainCard
-          header="Chat Overlay"
+          header="Twitch Chat Overlay"
           description='Add ?channel="{your channel}"'
           link="/chat-overlay"
           img="img/twitch.png"
@@ -154,13 +159,14 @@ const App = () => {
           lightColor="orange"
           darkColor="orangered"
         />
-      </Box>
-
-      <Box sx={{ ...boxStyles, width: "100%", clear: "both" }}>
-        <Typography variant="h2" color="textSecondary">
-          Twitch Stream Leaderboards (Aug 2026)
-        </Typography>
-        <Leaderboard />
+        <MainCard
+          header="DK Counter"
+          description="A counter display in the DK64 font"
+          link="https://github.com/geoffhuntsgood/dk-font-counter/releases"
+          img="img/counter.png"
+          lightColor="lightgreen"
+          darkColor="teal"
+        />
       </Box>
 
       <Box

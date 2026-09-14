@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography
-} from "@mui/material";
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 
 export const MainCard = ({
   header,
@@ -38,18 +32,14 @@ export const MainCard = ({
   return (
     <Card sx={styles.card}>
       <CardActionArea href={link} sx={styles.cardActions}>
-        <CardMedia
-          component="img"
-          image={img}
-          alt={header}
-          sx={{
-            width: 256,
-            height: 128,
-            objectFit: "scale-down",
-            margin: "0 1rem 0.5rem 0"
-          }}
-        />
-        <CardContent>
+        <CardContent sx={{ width: "90%" }}>
+          <img
+            src={img}
+            alt={header}
+            style={{
+              margin: "0 1rem"
+            }}
+          />
           <Typography variant="h3">{header}</Typography>
           <Typography variant="h4">{description}</Typography>
         </CardContent>
