@@ -129,14 +129,6 @@ const App = () => {
           lightColor="limegreen"
           darkColor="green"
         />
-        <MainCard
-          header="Squawksatoo VS"
-          description="Complete the goals in multiplayer!"
-          link="https://squawks-vs.onrender.com"
-          img="img/angy-squawks.png"
-          lightColor="red"
-          darkColor="darkred"
-        />
       </Box>
 
       <Box sx={{ ...boxStyles, float: medScreen ? null : "right" }}>
