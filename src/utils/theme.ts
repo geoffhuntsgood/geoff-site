@@ -20,6 +20,14 @@ export const theme = createTheme({
           "&:hover": {
             backgroundColor: "dodgerblue"
           }
+        },
+        text: {
+          color: "lightgray",
+          fontSize: "1.5rem",
+          "&:hover": {
+            background: "none",
+            color: "white"
+          }
         }
       }
     },

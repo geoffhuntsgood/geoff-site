@@ -10,11 +10,13 @@ import {
   useMediaQuery
 } from "@mui/material";
 import { MouseEvent, useState } from "react";
+import { HeaderDialog } from "./components/HeaderDialog";
 import { HeaderLink } from "./components/HeaderLink";
 import { MainCard } from "./components/MainCard";
 import { theme } from "./utils/theme";
 
 const App = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(menuAnchor);
 
@@ -67,9 +69,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <HeaderDialog open={dialogOpen} setOpen={setDialogOpen} />
       <AppBar position="sticky">
         <Toolbar>
-          <Typography variant="h1">Geoff Huntsgood</Typography>
+          <Typography variant="h1">
+            Geoff Huntsgood
+            <Button variant="text" onClick={() => setDialogOpen(true)}>
+              (who?)
+            </Button>
+          </Typography>
           <Box sx={{ display: "flex" }}>
             {smallScreen ? (
               <>
@@ -159,24 +167,6 @@ const App = () => {
           lightColor="lightgreen"
           darkColor="teal"
         />
-      </Box>
-
-      <Box
-        sx={{
-          clear: "both",
-          width: "100%",
-          textAlign: "center",
-          paddingBottom: "2rem"
-        }}
-      >
-        <Button
-          href="https://buymeacoffee.com/geoffhuntsgood"
-          rel="noopener noreferrer"
-          target="_blank"
-          variant="contained"
-        >
-          {`Buy me a coffee <3`}
-        </Button>
       </Box>
     </ThemeProvider>
   );
